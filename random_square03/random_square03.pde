@@ -25,7 +25,6 @@ void draw() {
     palette[i] = color(random(360), random(60, 90), random(60, 90));
   }
   noStroke();
-
   for(int i = 0; i < numShapes; i++) {
     // 長方形の中心のx座標
     float centerX = random(-width/2, width/2); 

@@ -7,7 +7,6 @@ void setup() {
 
 void draw() {
   background(255);
-
   // 左端から右端まで5px間隔で表示
   for(int x = 0; x <= width; x += 5) {
     // y座標をrandomで変動

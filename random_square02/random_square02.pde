@@ -14,7 +14,6 @@ void draw() {
   background(0, 0, 95);
   translate(width/2, height/2);
   noStroke();
-
   for(int i = 0; i < numShapes; i++) {
     // 長方形の中心のx座標
     float centerX = random(-width/2, width/2); 
