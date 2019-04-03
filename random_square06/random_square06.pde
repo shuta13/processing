@@ -99,10 +99,11 @@ void postprocess() {
 }
 
 void keyPressed() {
-  redraw();
   // sキー入力で保存
-  // if (key == 's') {
-  //   saveFrame("frames/frame-####.png");
-  // }
+  if (key == 's') {
+    saveFrame("frames/frame-####.png");
+  } else {
+    redraw();
+  }
 }
 
