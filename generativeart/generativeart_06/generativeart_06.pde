@@ -1,4 +1,4 @@
-boolean keyMode = false;
+boolean saveMode = false;
 
 float angnoise, radiusnoise;
 float xnoise, ynoise;
@@ -52,15 +52,15 @@ void draw() {
   line(x1, y1, x2, y2);
 
   int counter = 0;
-  while (keyMode) {
+  if (saveMode) {
     saveFrame("frames/frame-####.png");
-    counter++;
-    if (counter == 2) break;
+    delay(100);
+    exit();
   }
 }
 
 void keyPressed() {
   if (key == 's') {
-    keyMode = true;
+    saveMode = true;
   }
 }
