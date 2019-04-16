@@ -53,7 +53,7 @@ void draw() {
 
   int counter = 0;
   if (saveMode) {
-    saveFrame("frames/frame-####.png");
+    saveFrame("frames01/frame-####.png");
     delay(100);
     exit();
   }
