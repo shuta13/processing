@@ -3,7 +3,7 @@ boolean saveMode = false;
 void setup() {
   size(800, 800, P2D);
   smooth();
-  strokeWeight(5);
+  strokeWeight(1);
   noLoop();
 }
 

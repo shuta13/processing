@@ -39,7 +39,7 @@ void draw() {
   float rad = radians(angle);
   float x1 = centerX + (radius * cos(rad));
   float y1 = centerY + (radius * sin(rad));
-  float opprad = rad + PI;
+  float opprad = rad + PI; // opprad => PI/2
   float x2 = centerX + (radius * cos(opprad));
   float y2 = centerY + (radius * sin(opprad));
 
