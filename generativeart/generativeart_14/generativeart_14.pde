@@ -49,9 +49,9 @@ void drawPoint(float x, float y, float noiseFactor) {
   translate(x, y);
   rotate(noiseFactor * radians(360));
   stroke(0, 150);
-  fill((xnoise*ynoise)%255, 80);
-  // rect(0, 0, 20, 20);
-  line(0, 0, 20, 0);
+  // fill((xnoise*ynoise)%255, 80);
+  rect(0, 0, 20, 20);
+  // line(0, 0, 20, 0);
   popMatrix();
 }
 
