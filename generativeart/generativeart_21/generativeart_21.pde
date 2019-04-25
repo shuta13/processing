@@ -64,6 +64,29 @@ class Circle {
     if (y > (height+radius)) { y = 0 - radius; }
     if (y < (0-radius)) { y = height+radius; }
 
+    boolean touching = false;
+    for (int i = 0; i < circleArr.length; i++) {
+      Circle otherCirc = circleArr[i];
+      if (otherCirc != this) {
+        float dis = dist(x, y, otherCirc.x, otherCirc.y);
+        float overlap = dis - radius - otherCirc.radius;
+        if (overlap < 0) {
+          float midx, midy;
+          midx = (x + otherCirc.x) / 2;
+          midy = (y + otherCirc.y) / 2;
+          stroke(0, 100);
+          noFill();
+          overlap *= -1;
+          ellipse(midx, midy, overlap, overlap);
+        }
+      }
+    }
+
+    if (touching) {
+      if (alph < 255) alph--;
+    } else {
+      if (alph < 255) alph += 2;
+    }
     drawMe();
   }
 }

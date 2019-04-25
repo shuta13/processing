@@ -64,6 +64,23 @@ class Circle {
     if (y > (height+radius)) { y = 0 - radius; }
     if (y < (0-radius)) { y = height+radius; }
 
+    boolean touching = false;
+    for (int i = 0; i < circleArr.length; i++) {
+      Circle otherCirc = circleArr[i];
+      if (otherCirc != this) {
+        float dis = dist(x, y, otherCirc.x, otherCirc.y);
+        if ((dis - radius - otherCirc.radius) < 0) {
+          touching = true;
+          break;
+        }
+      }
+    }
+
+    if (touching) {
+      if (alph < 255) alph--;
+    } else {
+      if (alph < 255) alph += 2;
+    }
     drawMe();
   }
 }
