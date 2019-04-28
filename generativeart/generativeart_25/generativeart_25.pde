@@ -1,16 +1,12 @@
-boolean saveMode = false;
-
 Cell[][] cellArray;
-int cellSize = 12;
+int cellSize = 10;
 int numx, numy;
 
 void setup() {
-  size(800, 800, P3D);
-  strokeWeight(1);
+  size(800, 800);
   numx = floor(width/cellSize);
   numy = floor(height/cellSize);
   restart();
-  noLoop();
 }
 
 void restart() {
@@ -47,7 +43,7 @@ void restart() {
 }
 
 void draw() {
-  background(15);
+  background(200);
 
   for (int x = 0; x < numx; x++) {
     for (int y = 0; y < numy; y++) {
@@ -62,21 +58,10 @@ void draw() {
       cellArray[x][y].drawMe();
     }
   }
-
-  if (saveMode) {
-    saveFrame("frames/frame-####.png");
-    delay(100);
-    exit();
-  }
 }
 
 void mousePressed() {
   restart();
-}
-
-void keyPressed() {
-  redraw();
-  if (key == 's') saveMode = true;
 }
 
 class Cell {
@@ -103,22 +88,19 @@ class Cell {
 
   void calcNextState() {
     int liveCount = 0;
+    if (state) { liveCount++; }
     for (int i = 0; i < neighbors.length; i++) {
       if (neighbors[i].state == true) liveCount++;
     }
 
-    if (state == true) {
-      if ((liveCount == 2) || (liveCount == 3)) {
-        nextState = true;
-      } else {
-        nextState = false;
-      }
+    if (liveCount <= 4) {
+      nextState = false;
     } else {
-      if (liveCount == 3) {
-        nextState = true;
-      } else {
-        nextState = false;
-      }
+      nextState = true;
+    }
+
+    if ((liveCount == 4) || (liveCount == 5)) {
+      nextState = !nextState;
     }
   }
 
@@ -126,13 +108,12 @@ class Cell {
 
   void drawMe() {
     state = nextState;
-    stroke(255, 2);
-    // noStroke();
+    stroke(0);
     if (state == true) {
-      fill((neighbors.length*random(0, 1000))%255%120, (neighbors.length)*cellSize%255, (neighbors.length*random(10))%255, 40);
+      fill(0);
     } else {
-      fill((neighbors.length*random(0, 1000))%255%120, neighbors.length, neighbors.length%255, 40);
+      fill(255);
     }
-    triangle(neighbors.length, neighbors.length, width/2, height/2, x, y);
+    ellipse(x, y, cellSize, cellSize);
   }
 }
