@@ -1,5 +1,5 @@
 int numChildlen = 3;
-int maxLevels = 10;
+int maxLevels = 3;
 
 Branch trunk;
 

@@ -11,6 +11,7 @@ void setup() {
   noFill();
   newTree();
   // noLoop();
+  frameRate(2);
 }
 
 void newTree() {
