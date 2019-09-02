@@ -1,5 +1,12 @@
 boolean saveMode = false;
 
+void keyPressed() {
+  redraw();
+  if (key == 's') {
+    saveMode = true;
+  }
+}
+
 void setup() {
   fullScreen(P2D);
   pixelDensity(displayDensity());
@@ -15,12 +22,5 @@ void draw() {
     saveFrame("frames/frame-####.png");
     delay(100);
     exit();
-  }
-}
-
-void keyPressed() {
-  redraw();
-  if (key == 's') {
-    saveMode = true;
   }
 }
